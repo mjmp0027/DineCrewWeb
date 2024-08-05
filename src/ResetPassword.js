@@ -23,7 +23,7 @@ function ResetPassword() {
             return;
         }
 
-        const response = await fetch('http://192.168.1.182:8080/api/auth/reset-password', {
+        const response = await fetch('http://192.168.0.65:8080/api/auth/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,6 +43,7 @@ function ResetPassword() {
 
     return (
         <div style={styles.container}>
+            <div style={styles.content}>
             <h1 style={styles.title}>Restablecer Contraseña</h1>
             <input
                 type="password"
@@ -60,6 +61,7 @@ function ResetPassword() {
             />
             <button onClick={handleResetPassword} style={styles.button}>Restablecer</button>
             {message && <p style={message.includes('correctamente') ? styles.successMessage : styles.errorMessage}>{message}</p>}
+            </div>
         </div>
     );
 }
@@ -69,35 +71,40 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         height: '100vh',
-        backgroundColor: '#f0f8ff', // Azul claro
-        padding: '0 20px', // Añadido padding horizontal para más espacio en los bordes
+        backgroundColor: '#f0f8ff',
+        padding: '0 20px',
+    },
+    content: {
+        marginTop: '12.5vh',
+        width: '100%',
+        textAlign: 'center',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
-        color: '#4169e1', // Azul más oscuro
+        color: '#4169e1',
     },
     input: {
         width: '100%',
         padding: 10,
         marginBottom: 15,
         borderWidth: 1,
-        borderColor: '#4169e1', // Azul más oscuro
+        borderColor: '#4169e1',
         borderRadius: 5,
-        boxSizing: 'border-box', // Para incluir el padding en el tamaño total
+        boxSizing: 'border-box',
     },
     button: {
-        backgroundColor: '#4169e1', // Azul más oscuro
+        backgroundColor: '#4169e1',
         color: '#fff',
         padding: '10px 20px',
         border: 'none',
         borderRadius: 5,
         cursor: 'pointer',
         fontSize: 16,
-        marginTop: 15, // Añadido margen superior para separar del último input
+        marginTop: 15,
     },
     successMessage: {
         marginTop: 10,
