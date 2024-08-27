@@ -23,7 +23,7 @@ function ResetPassword() {
             return;
         }
 
-        const response = await fetch('http://192.168.0.65:8080/api/auth/reset-password', {
+        const response = await fetch('http://192.168.0.127:8080/api/auth/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
